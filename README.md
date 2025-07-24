@@ -5,11 +5,11 @@ This project is a simple **Student Management System** written in Java using bas
 ---
 
 ## 🗂️ Project Structure
--Student-Management-System/
--oops/ -> 
- Student.java ->       
- StudentM.java ->   
- README.md ->         
+- Student-Management-System/
+- oops/ ->
+- Student.java ->
+- StudentM.java ->
+-  README.md ->         
 
 ---
 
