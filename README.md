@@ -6,10 +6,10 @@ This project is a simple **Student Management System** written in Java using bas
 
 ## 🗂️ Project Structure
 Student-Management-System/
-├── oops/
-│   ├── Student.java      // Class representing student details
-│   └── StudentM.java     // Main class handling input and displaying data
-├── README.md             // Project documentation
+oops/ -> 
+ Student.java ->       // Class representing student details
+ StudentM.java ->   // Main class handling input and displaying data
+ README.md ->          // Project documentation
 
 ---
 
@@ -42,7 +42,10 @@ Class Roll Number of Student: 22
 Attendance of Student: 89
 Parent Phone number of Student: 9876543211
 
+```
 ## Output
+
+```plaintext
 Name: Roshan Singh Bisht
 Class: 10
 Section: A
