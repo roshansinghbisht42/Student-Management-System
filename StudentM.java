@@ -39,7 +39,7 @@ class Student{
             System.out.println("\n---------------------------\n");
         }
 }
-public class newJ{
+public class StudentM{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
          System.out.println("\n-----------------------------------------------------\n");
