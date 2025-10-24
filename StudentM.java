@@ -1,91 +1,142 @@
-package oops;
-import java.nio.channels.Pipe.SourceChannel;
 import java.util.*;
-    class Student{
+class Student{
+    String School_Name;
+    String Name;
+    int Class;
+    char Section;
+    String Parent_Name;
+    long Phone_Num;
 
-        String Name;
-        int Class;
-        String Sec;
-        int Class_roll;
-        int att_per;
-        Long Parent_no;
-
-        Student(String Name_Stud, int Class_Stud, String Sec_Stud, int Class_Roll, int Attandance, Long Parent_ph){
-            this.Name = Name_Stud;
-            this.Class = Class_Stud;
-            this.Sec = Sec_Stud;
-            this.Class_roll = Class_Roll;
-            this.att_per = Attandance;
-            this.Parent_no = Parent_ph;
+    //constructor overloading( the student constructor s1)
+        Student(String school_name, String sName, int sClass, char section, String parent_name, long phone_num){
+            this.Name=sName;
+            this.Class=sClass;
+            this.Section=section;
+            this.Parent_Name=parent_name;
+            this.Phone_Num=phone_num;
+            this.School_Name=school_name;
+        }
+    //copy constructor (it copies th eschool name of the s1 student object)
+        Student(Student s1,String newName, int newClass, char newSection, String newParentName, long newPhoneNum){
+            this.Name=newName;
+            this.Class=newClass;
+            this.Section=newSection;
+            this.Parent_Name=newParentName;
+            this.Phone_Num=newPhoneNum;
+            this.School_Name=s1.School_Name;
         }
 
-        Student(String NewName, Student S1,int Class_Roll, int Attandance, Long Parent_ph){
-            this.Name = NewName;
-            this.Class = S1.Class;
-            this.Sec = S1.Sec;
-            this.Class_roll = Class_Roll;
-            this.att_per = Attandance;
-            this.Parent_no = Parent_ph;
+    //methods of the user inputs to be shown after the inputs
+        public void display(){
+            System.out.println("\n---------------------------\n");
+            System.out.println("\n------Student Details------");
+            System.out.print("School Name       : " + School_Name);
+            System.out.print("\nStudent Name    : " + Name);
+            System.out.print("\nClass           : " + Class);
+            System.out.print("\nSection         : " + Section);
+            System.out.print("\nParent Name     : " + Parent_Name);
+            System.out.print("\nPhone Number    : " + Phone_Num);
+            System.out.println("\n---------------------------\n");
         }
-        public void Details(){
-            System.out.print("Name of Student: " + Name + "\n");
-            System.out.print("Class of Student: " + Class + "\n");
-            System.out.print("Section of Student: " + Sec + "\n");
-            System.out.print("Class roll of Student: " + Class_roll + "\n");
-            System.out.print("Attandance of Student: " + att_per + "\n");
-            System.out.print("Parent Phone number of Student: " + Parent_no + "\n\n");
-            System.out.println("----------------------------------------------------------");
-        }
-    }
-
- class StudentM {
+}
+public class newJ{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("----------------------------------------------------------");
-        System.out.println("\t\tStudent Management System");
-        System.out.println("\tNOTE: All the must be of same Section and Class");
-        System.out.println("----------------------------------------------------------");
-      
-        System.out.print("Class of Student: ");
-        int Studentclass = scanner.nextInt();
-        System.out.println();
+         System.out.println("\n-----------------------------------------------------\n");
+         System.out.println("\t------Student Management System------");
+         System.out.println("\n-----------------------------------------------------\n");
 
-        System.out.print("Section of Student: ");
-        String Studentsection = scanner.next();
-        System.out.println();
+         System.out.print("Enter School Name: ");
+         String schoolName = scanner.nextLine();
 
-        System.out.print("How many Student data you want to save = ");
-        int input = scanner.nextInt();
-        System.out.println();
+         System.out.print("\nHow many students do you want to enter? ");
+         int inputs = scanner.nextInt();
+         scanner.nextLine();//it consumes a new line
 
-        Student[] Students = new Student[input];
+         //array of objects for student inputs
+         Student[] students = new Student[inputs];
+         int count = 0;
 
-        for (int i = 0; i < input; i++){
-                System.out.println("Enter the details of Student");
+            //boolean for while loop
+             boolean running = true;
+             while(running){
+            //menu in student management system
+            System.out.println("1: Add Record of Students");
+            System.out.println("2: Display Record of Students");
+            System.out.println("3: Search Student by Name");
+            System.out.println("4: Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-                System.out.print("Name of Student: ");
-                String name = scanner.next();
-                scanner.nextLine();
-                System.out.println();
+            switch(choice){
+                case 1: 
+                    for(int i=0; i<inputs; i++){
+                    System.out.print("Enter the Details of Student : " + (i+1) + "\n");
 
-                System.out.print("Class Roll Number of Student: ");
-                int Class_roll = scanner.nextInt();
-                System.out.println();
+                    //name
+                    System.out.print("\nEnter Student Name: ");
+                    String name = scanner.nextLine();
+                    System.out.println();
 
-                System.out.print("Attandce of Student: ");
-                int att_per = scanner.nextInt();
-                System.out.println();
+                    //class
+                    System.out.print("Enter Class: ");
+                    int studentclass = scanner.nextInt();
+                    scanner.nextLine(); //it consumes a new line
+                    System.out.println();
 
-                System.out.print("Parent Phone number of Student: ");
-                Long Parent_no = scanner.nextLong();
-                System.out.println();
+                    //section
+                    System.out.print("Enter Section: ");
+                    char section = scanner.next().charAt(0);
+                    scanner.nextLine(); //it consumes a new line
+                    System.out.println();
 
-                Students[i] = new Student(name, Class_roll, name, Class_roll, att_per, Parent_no);
-            }
-        System.out.println("---------------------------------------------");
-        System.out.println("\n\n----------------Student Records-----------------\n");
-        for(Student s : Students){
-            s.Details();
+                    //parent name
+                    System.out.print("Enter Parent Name of the Student: ");
+                    String parentName = scanner.nextLine();
+                    System.out.println();
+
+                    //phone number
+                    System.out.print("Enter Parent's phone number: ");
+                    long phoneNum = scanner.nextLong();
+                    scanner.nextLine(); //it consumes a new line
+                    System.out.println();
+
+                    //creating objects of the student class
+                    students[i]= new Student(schoolName, name, studentclass, section, parentName, phoneNum);
+                    }
+                break;
+
+                case 2:
+                    System.out.println("\n================ Student Details ================\n");
+                    for(Student S : students){
+                        if(S != null)
+                        S.display();
+                    }
+                break;
+
+                case 3:
+                    System.out.print("\nEnter the name of the Student to search: ");
+                    String searchname = scanner.nextLine();
+                    boolean found = false;
+                    for(Student S : students){
+                        if(S != null && S.Name.equalsIgnoreCase(searchname)){
+                            S.display();
+                            found=true;
+                        }
+                    }
+                break;
+
+                case 4:
+                    running = false;
+                    System.out.println("\nExiting Student Management System.");
+                    System.out.println("\n-----------------------------------------------------\n");
+                break;
+                
+                default: 
+                System.out.println("\nInvalid choice!!! \nPlease try again with a valid option.");
+                break;
         }
+    }
+        scanner.close();
     }
 }
