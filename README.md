@@ -11,8 +11,7 @@ This project is a simple **Student Management System** written in Java using bas
 - Student.java 
 - StudentM.java 
 -  README.md -      
-```
----
+ ---
 
 ## 🧠 Concepts Used
 
